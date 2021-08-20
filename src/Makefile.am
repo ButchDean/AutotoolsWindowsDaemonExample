@@ -1,2 +1,2 @@
-bin_PROGRAMS = daemonexample
-deamon_SOURCES = daemon.c
+bin_PROGRAMS = daemon
+daemon_SOURCES = daemon.c

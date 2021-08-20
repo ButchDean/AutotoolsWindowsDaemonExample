@@ -14,6 +14,12 @@ int main() {
 
     int sentinel = 0;
 
+#ifdef __CYGWIN__
+    puts("Cygwin platform.");
+#else
+    puts("Other platform.");
+#endif
+
     // Create child process
     process_id = fork();
 
@@ -41,7 +47,7 @@ int main() {
     }
 
     // Change current working directory to root
-    chdir("/");
+    //chdir("/");
 
     // Close STDIN, STDOUT, STDERR
     close(STDIN_FILENO);
