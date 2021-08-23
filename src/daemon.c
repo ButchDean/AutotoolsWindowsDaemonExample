@@ -17,7 +17,25 @@ int main() {
 #ifdef __CYGWIN__
     puts("Cygwin platform.");
 #else
-    puts("Other platform.");
+    puts("__CYGWIN__ not detected.");
+#endif
+
+#ifdef _WIN32
+    puts("_WIN32 platform.");
+#else
+    puts("_WIN32 not detected.");
+#endif
+
+#ifdef WIN32
+    puts("WIN32 platform.");
+#else
+    puts("WIN32 not detected.");
+#endif
+
+#ifdef KERNEL_WIN32
+    puts("KERNEL_WIN32 platform.");
+#else
+    puts("KERNEL_WIN32 not detected.");
 #endif
 
     // Create child process
@@ -32,7 +50,7 @@ int main() {
     // PARENT PROCESS. Need to kill it.
     if(process_id > 0) {
         printf("process_id of child process: %d\n", process_id);
-        exit(0);    // We exit the terminal here, but notice the process isn't killed? :)
+        exit(0);    // We exit the terminal here
     }
 
     // Unmask file mode
