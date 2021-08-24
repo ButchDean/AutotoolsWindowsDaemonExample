@@ -15,25 +15,25 @@ int main() {
     int sentinel = 0;
 
 #ifdef __CYGWIN__
-    puts("Cygwin platform.");
+    puts("Cygwin platform detected.");
 #else
     puts("__CYGWIN__ not detected.");
 #endif
 
 #ifdef _WIN32
-    puts("_WIN32 platform.");
+    puts("_WIN32 platform detected.");
 #else
     puts("_WIN32 not detected.");
 #endif
 
 #ifdef WIN32
-    puts("WIN32 platform.");
+    puts("WIN32 platform detected.");
 #else
     puts("WIN32 not detected.");
 #endif
 
 #ifdef KERNEL_WIN32
-    puts("KERNEL_WIN32 platform.");
+    puts("KERNEL_WIN32 platform detected.");
 #else
     puts("KERNEL_WIN32 not detected.");
 #endif
@@ -47,7 +47,7 @@ int main() {
         exit(1);
     }
 
-    // PARENT PROCESS. Need to kill it.
+    // Kill parent process.
     if(process_id > 0) {
         printf("process_id of child process: %d\n", process_id);
         exit(0);    // We exit the terminal here
@@ -64,9 +64,6 @@ int main() {
         exit(1);
     }
 
-    // Change current working directory to root
-    //chdir("/");
-
     // Close STDIN, STDOUT, STDERR
     close(STDIN_FILENO);
     close(STDOUT_FILENO);
@@ -81,7 +78,6 @@ int main() {
         fprintf(fp, "Daemon logging...\n");
         fflush(fp);
 
-        // Core daemon work would go here
         sentinel++;
     }
 
