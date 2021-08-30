@@ -36,5 +36,23 @@ void printFileProperties(struct stat stats)
 
 int main()
 {
+    char path[100];
+    struct stat stats;
+
+    printf("Enter source file path: ");
+    scanf("%s", path);
+
+    // stat() returns 0 on successful operation,
+    // otherwise returns -1 if unable to get file properties.
+    if (stat(path, &stats) == 0)
+    {
+        printFileProperties(stats);
+    }
+    else
+    {
+        printf("Unable to get file properties.\n");
+        printf("Please check whether '%s' file exists.\n", path);
+    }
+
     return 0;
 }

@@ -1,5 +1,5 @@
 aclocal.m4
-daemon-1.0.tar.gz
+*.tar.gz
 daemon-1.0/
 autom4te.cache/
 compile
@@ -14,7 +14,7 @@ missing
 .deps/
 Makefile
 Makefile.in
-daemon.exe
-daemon.o
+*.exe
+*.o
 stamp-h1
 log.txt
